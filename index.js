@@ -1,9 +1,9 @@
-const { exec } = require('child_process');
-const express = require('express');
+const { exec } = require("child_process");
+const express = require("express");
 const app = express();
-const parser = require('body-parser');
-const cors = require('cors');
-const router = require('./router');
+const parser = require("body-parser");
+const cors = require("cors");
+const router = require("./router");
 const PORT = 8080;
 exec(`lsof -i tcp:${PORT} | awk '{if(NR>1)print }'`, (error, stdout, stderr) => {
     if (error) {
@@ -24,10 +24,10 @@ exec(`lsof -i tcp:${PORT} | awk '{if(NR>1)print }'`, (error, stdout, stderr) => 
 });
 app.use(express.urlencoded({ extended: false }));
 app.use(parser.json());
-app.use(express.static('./public'));
-app.set('views', './views');
-app.set('view engine', 'ejs');
-app.get('', (req, res) => res.render('index', { text: 'This is EJS' }));
+app.use(express.static("./public"));
+app.set("views", "./views");
+app.set("view engine", "ejs");
+app.get("", (req, res) => res.render("index", { text: "This is EJS" }));
 app.use(cors());
 app.use(router);
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));

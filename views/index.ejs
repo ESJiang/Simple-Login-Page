@@ -6,22 +6,18 @@
         <title>Login Page</title>
         <link rel="stylesheet" href="css/login.css" />
         <link rel="icon" href="login.png" />
-        <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script defer src="js/login.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+        <script src="js/login.js" defer></script>
     </head>
     <body>
         <div class="box">
             <h1>Welcome</h1>
             <h3>Let's get started</h3>
-            <input type="text" id="name" name="name" placeholder="Username" autocomplete="false" />
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                autocomplete="false"
-            />
-            <input type="submit" id="login" value="Login" />
+            <form id="myform">
+                <input type="text" id="name" name="name" placeholder="Username" autocomplete="false" />
+                <input type="password" id="password" name="password" placeholder="Password" autocomplete="false" />
+                <input type="submit" id="login" value="Login" />
+            </form>
         </div>
         <p id="message"></p>
     </body>
